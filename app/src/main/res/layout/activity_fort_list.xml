@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/surface_background"
+
+    tools:context=".ui.fortlist.FortListActivity">
+
+    <!-- MAIN CONTENT -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <!-- SHIMMER -->
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerViewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:shimmer_auto_start="true"
+            app:shimmer_duration="1500">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:padding="8dp">
+
+                <include layout="@layout/shimmer_placeholder_item" />
+                <include layout="@layout/shimmer_placeholder_item" />
+                <include layout="@layout/shimmer_placeholder_item" />
+                <include layout="@layout/shimmer_placeholder_item" />
+
+            </LinearLayout>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <!-- RECYCLER -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingTop="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="60dp"
+            android:fadingEdgeLength="220dp"
+            android:scrollbars="none"
+            android:requiresFadingEdge="vertical"
+            tools:listitem="@layout/item_fort" />
+
+        <!-- EMPTY STATE -->
+
+        <LinearLayout
+            android:id="@+id/emptyStateContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivStateIcon"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@android:drawable/ic_menu_search"
+                app:tint="@color/heritage_accent" />
+
+            <TextView
+                android:id="@+id/tvStateTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="No Forts Found"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStateSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Try another search keyword"
+                android:textColor="#BDBDBD"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- FLOATING HEADER -->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@android:color/transparent"
+        android:elevation="16dp"
+        android:fitsSystemWindows="true">
+
+        <!-- HIDDEN TOOLBAR FOR SUPPORT ACTION BAR BINDING -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            app:title="Karunada Kote"
+            app:titleTextColor="@android:color/white" />
+
+        <!-- GLASS HEADER PANEL -->
+
+        <LinearLayout
+            android:id="@+id/headerPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:padding="16dp"
+            android:background="@drawable/bg_header_glass">
+
+            <!-- TITLE ROW -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- GOLD ACCENT BAR -->
+                <View
+                    android:layout_width="4dp"
+                    android:layout_height="36dp"
+                    android:background="#D4AF37"
+                    android:layout_marginEnd="12dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Karunada Kote"
+                        android:textColor="#FFFFFF"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.02" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ಕರ್ನಾಟಕದ ಐತಿಹಾಸಿಕ ಕೋಟೆಗಳ ಅನ್ವೇಷಣೆ"
+                        android:textColor="#BDD4AF37"
+                        android:textSize="10sp"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivKarnatakaMap"
+
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+                    android:layout_marginStart="6dp"
+
+                    android:layout_gravity="center_vertical"
+
+                    android:background="@android:color/transparent"
+
+                    android:src="@drawable/karanataka_map"
+
+                    android:scaleType="centerInside"
+
+                    android:adjustViewBounds="true"
+
+                    android:contentDescription="Karnataka Map"
+
+                    android:alpha="0.95"/>
+
+            </LinearLayout>
+
+            <!-- DIVIDER -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#40D4AF37"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="10dp" />
+
+            <!-- SEARCH BAR -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/bg_search_glass"
+                android:gravity="center_vertical">
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:background="@android:color/transparent"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                    app:iconifiedByDefault="false"
+                    app:queryBackground="@android:color/transparent"
+                    app:queryHint="ಕರ್ನಾಟಕ ಕೋಟೆಗಳನ್ನು ಹುಡುಕಿ..." />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

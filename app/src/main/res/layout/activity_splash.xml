@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#0E0E0E">
+
+    <!-- Background Glow -->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="@drawable/bg_splash_overlay" />
+
+    <!-- Karnataka Artwork -->
+
+    <ImageView
+        android:id="@+id/ivFort"
+
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+
+        android:layout_gravity="center_horizontal"
+
+        android:layout_marginTop="120dp"
+
+        android:alpha="0.92"
+
+        android:scaleType="fitCenter"
+
+        android:src="@drawable/karanataka_map" />
+
+    <!-- Bottom Content -->
+
+    <LinearLayout
+        android:id="@+id/contentContainer"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="bottom"
+
+        android:gravity="center"
+
+        android:orientation="vertical"
+
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingBottom="90dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="ಕರ್ನಾಟಕ ಕೋಟೆ"
+
+            android:textColor="#F5E6C8"
+
+            android:textSize="42sp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="8dp"
+
+            android:letterSpacing="0.12"
+
+            android:text="KARUNADA KOTE"
+
+            android:textColor="@android:color/white"
+
+            android:textSize="18sp"
+
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="2dp"
+
+            android:layout_marginTop="18dp"
+
+            android:background="#B8894F" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="24dp"
+
+            android:gravity="center"
+
+            android:lineSpacingExtra="2dp"
+
+            android:text="Unlocking the Gates to Karnataka’s Royal Past"
+
+            android:textColor="#E6C79C"
+
+            android:textSize="16sp"
+
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>

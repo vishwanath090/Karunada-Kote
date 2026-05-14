@@ -1,0 +1,72 @@
+<resources>
+
+    <style
+        name="Theme.KarunadaKote"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Main Brand -->
+        <item name="colorPrimary">
+            @color/heritage_primary
+        </item>
+
+        <item name="colorPrimaryVariant">
+            @color/heritage_primary_dark
+        </item>
+
+        <item name="colorOnPrimary">
+            @color/white
+        </item>
+
+        <item name="colorSecondary">
+            @color/heritage_accent
+        </item>
+
+        <!-- Surface and Window -->
+        <item name="android:windowBackground">
+            @color/surface_background
+        </item>
+
+        <item name="android:statusBarColor">
+            @color/heritage_primary_dark
+        </item>
+
+        <item name="android:fontFamily">
+            sans-serif-medium
+        </item>
+
+        <!-- Shared Element Transitions -->
+        <item name="android:windowActivityTransitions">
+            true
+        </item>
+
+        <item name="android:windowContentTransitions">
+            true
+        </item>
+
+        <!-- Smooth animation feel -->
+        <item name="android:windowEnterTransition">
+            @android:transition/fade
+        </item>
+
+        <item name="android:windowExitTransition">
+            @android:transition/fade
+        </item>
+
+        <!-- Refined Shapes -->
+        <item name="shapeAppearanceLargeComponent">
+            @style/ShapeAppearance.App.LargeComponent
+        </item>
+
+    </style>
+
+    <style
+        name="ShapeAppearance.App.LargeComponent"
+        parent="ShapeAppearance.MaterialComponents.LargeComponent">
+
+        <item name="cornerSize">
+            12dp
+        </item>
+
+    </style>
+
+</resources>

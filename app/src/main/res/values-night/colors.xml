@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <color name="surface_background">
+        #121212
+    </color>
+
+    <color name="text_primary">
+        #FFFFFF
+    </color>
+
+    <color name="text_secondary">
+        #D0D0D0
+    </color>
+
+    <color name="divider_color">
+        #2A2A2A
+    </color>
+
+    <color name="heritage_primary">
+        #D4A373
+    </color>
+
+    <color name="heritage_primary_dark">
+        #B08968
+    </color>
+
+    <color name="ai_card_background">
+        #1E1E1E
+    </color>
+
+</resources>

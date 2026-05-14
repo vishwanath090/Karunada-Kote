@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Internet -->
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <!-- Network -->
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Location -->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_fort_visited"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.KarunadaKote">
+
+        <!-- Splash Screen -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.KarunadaKote">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+        <!-- Fort List Screen -->
+        <activity
+            android:name=".ui.fortlist.FortListActivity"
+            android:exported="false" />
+
+        <!-- Map Screen -->
+        <activity
+            android:name=".ui.map.MapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.map.ExploreMapActivity"
+            android:exported="false"/>
+
+    </application>
+
+</manifest>

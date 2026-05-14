@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Heritage Brand Palette (Primary) -->
+    <color name="heritage_primary">#A63B12</color> <!-- Deep Burnt Saffron -->
+    <color name="heritage_primary_dark">#7A2B0D</color>
+    <color name="heritage_accent">#D4AF37</color> <!-- Metallic Gold -->
+
+    <!-- UI Surfaces -->
+    <color name="surface_background">#FDFBF7</color> <!-- Eggshell/Parchment -->
+    <color name="ai_card_background">#FFFBF0</color> <!-- Very Light Gold Tint -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Text Colors (High Contrast) -->
+    <color name="text_primary">#2D2926</color> <!-- Charcoal Black -->
+    <color name="text_secondary">#4A4A4A</color> <!-- Deep Grey -->
+    <color name="text_grey">#757575</color>
+    <color name="text_light_grey">#E0E0E0</color>
+
+    <!-- Status & Indicators -->
+    <color name="visited_green">#4CAF50</color>
+    <color name="divider_color">#E0E0E0</color>
+    <color name="error_red">#FF0000</color>
+
+    <!-- Compatibility Aliases (Ensures old code doesn't crash) -->
+    <color name="colorPrimary">@color/heritage_primary</color>
+    <color name="colorPrimaryDark">@color/heritage_primary_dark</color>
+    <color name="colorAccent">@color/heritage_accent</color>
+    <color name="colorPrimaryLight">#F5E6E0</color>
+
+    <color name="textPrimary">@color/text_primary</color>
+    <color name="textSecondary">@color/text_secondary</color>
+    <color name="surfaceColor">@color/surface_background</color>
+    <color name="aiCardColor">@color/white</color>
+    <color name="dividerColor">@color/divider_color</color>
+    <color name="visitedGreen">@color/visited_green</color>
+</resources>

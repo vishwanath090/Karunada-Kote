@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#1C1C1E"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:strokeColor="#18FFFFFF"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Placeholder image -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:background="#2A2A2C" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Title line -->
+            <View
+                android:layout_width="200dp"
+                android:layout_height="18dp"
+                android:background="#2D2D2F" />
+
+            <!-- Subtitle line -->
+            <View
+                android:layout_width="120dp"
+                android:layout_height="13dp"
+                android:layout_marginTop="8dp"
+                android:background="#252527" />
+
+            <!-- Divider shimmer -->
+            <View
+                android:layout_width="36dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="10dp"
+                android:background="#303032" />
+
+            <!-- Description lines -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="13dp"
+                android:background="#252527" />
+
+            <View
+                android:layout_width="220dp"
+                android:layout_height="13dp"
+                android:layout_marginTop="6dp"
+                android:background="#252527" />
+
+            <!-- Footer -->
+            <View
+                android:layout_width="90dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="14dp"
+                android:background="#252527" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

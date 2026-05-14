@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_marginHorizontal="14dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+
+    android:clickable="true"
+    android:focusable="true"
+
+    app:cardBackgroundColor="#141414"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="14dp"
+    app:strokeColor="#33D4AF37"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ── Full Hero Image with overlays ── -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <!-- Fort photo — full bleed, no dimming -->
+            <ImageView
+                android:id="@+id/ivFortBanner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_fort"
+                android:transitionName="fortImage"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"/>
+
+            <!-- Tight bottom scrim ONLY behind text — like Airbnb -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/bg_image_gradient" />
+
+            <!-- Top badges row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#99000000"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="4dp"
+                    android:text="ಕರ್ನಾಟಕ"
+                    android:textColor="#F5E6C8"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvFortTypeBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_fort_type_badge"
+                    android:paddingHorizontal="9dp"
+                    android:paddingVertical="4dp"
+                    android:textColor="#FFFDE7"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!-- Bottom text overlay — name + dynasty on the image -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="3dp">
+
+                    <TextView
+                        android:id="@+id/tvDynastyLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textColor="#F0C46A"
+                        android:textSize="14sp"
+
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+
+                        android:shadowColor="#F0000000"
+                        android:shadowDx="0"
+                        android:shadowDy="1"
+                        android:shadowRadius="4" />
+
+                    <TextView
+                        android:id="@+id/tvYearLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginStart="8dp"
+
+                        android:textColor="#F5FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+
+                        android:shadowColor="#F0000000"
+                        android:shadowDx="0"
+                        android:shadowDy="1"
+                        android:shadowRadius="4" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvFortName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:textColor="#FFFFFF"
+
+                    android:textSize="24sp"
+
+                    android:textStyle="bold"
+
+                    android:letterSpacing="0.01"
+
+                    android:shadowColor="#CC000000"
+                    android:shadowDx="0"
+                    android:shadowDy="2"
+                    android:shadowRadius="6"/>
+
+            </LinearLayout>
+
+            <!-- Visited badge -->
+            <TextView
+                android:id="@+id/tvVisitedBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_visited_badge"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="5dp"
+                android:text="✓ ಭೇಟಿ"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <!-- ── Compact info strip — like Google Maps card bottom ── -->
+        <!-- ── Compact info strip — modern travel card footer ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="12dp">
+
+            <!-- Top row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- District chip -->
+                <TextView
+                    android:id="@+id/tvDistrictChip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/bg_district_chip"
+
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+
+                    android:textColor="#CCD4AF37"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+
+                    android:visibility="gone" />
+
+                <!-- Description -->
+                <TextView
+                    android:id="@+id/tvFortDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+
+                    android:ellipsize="end"
+                    android:maxLines="1"
+
+                    android:textColor="#E0E0E0"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Bottom action row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Route Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRoute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+
+                    android:minWidth="0dp"
+
+                    android:paddingStart="12dp"
+                    android:paddingEnd="14dp"
+
+                    android:text="Route"
+                    android:textAllCaps="false"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:textColor="#F6E7B0"
+
+                    android:fontFamily="sans-serif-medium"
+
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+
+                    app:cornerRadius="18dp"
+
+                    app:backgroundTint="#1F1A0D"
+
+                    app:strokeColor="#55D4AF37"
+                    app:strokeWidth="1dp"
+
+                    app:icon="@android:drawable/ic_dialog_map"
+                    app:iconGravity="textStart"
+                    app:iconPadding="6dp"
+                    app:iconTint="#D4AF37"
+                    app:iconSize="16dp"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="18dp"
+
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+
+                    android:background="#33D4AF37"/>
+                <!-- Explore CTA -->
+                <TextView
+                    android:id="@+id/tvExplore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="14dp"
+
+                    android:text="Explore →"
+                    android:textColor="#D4AF37"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

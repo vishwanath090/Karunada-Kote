@@ -1,0 +1,59 @@
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Local config
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Logs
+*.log
+
+# Generated files
+captures/
+.externalNativeBuild/
+.cxx/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kotlin
+.kotlin/
+
+# Temporary files
+*.tmp
+*.temp
+
+# APK / AAB outputs
+*.apk
+*.aab
+
+# Firebase / Secrets
+google-services.json
+
+# Navigation Safe Args
+.navigation/
+
+# Mac
+*.swp
+
+# Signing configs
+signing.properties
+
+# Crashlytics
+com_crashlytics_export_strings.xml
+
+# NDK
+obj/
+
+# IntelliJ
+out/

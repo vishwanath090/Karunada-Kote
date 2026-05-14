@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ಕರುನಾಡ ಕೋಟೆ ಮಾರ್ಗದರ್ಶಿ</string>
+
+    <string name="title_fort_list">ಕರ್ನಾಟಕ ಕೋಟೆಗಳು</string>
+
+    <string name="title_map">ಕೋಟೆ ನಕ್ಷೆ</string>
+
+    <string name="btn_play_audio">ಧ್ವನಿ ಕೇಳಿ</string>
+
+    <string name="btn_generate_ai">AI ವಿವರಣೆ ರಚಿಸಿ</string>
+
+    <string name="btn_stop">ನಿಲ್ಲಿಸಿ</string>
+
+    <string name="visited_badge">✓ ಭೇಟಿ ನೀಡಲಾಗಿದೆ</string>
+
+    <string name="ai_label">✨ AI ವಿವರಣೆ</string>
+
+    <string name="tap_to_explore">ನಕ್ಷೆಯಲ್ಲಿ ಅನ್ವೇಷಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+
+    <string name="about_fort">ಈ ಕೋಟೆಯ ಬಗ್ಗೆ</string>
+
+    <string name="loading">ಲೋಡ್ ಆಗುತ್ತಿದೆ…</string>
+
+    <string name="error_load_forts">ಕೋಟೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
+
+</resources>

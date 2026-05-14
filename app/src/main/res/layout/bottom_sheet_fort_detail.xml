@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/bg_bottom_sheet">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            app:contentScrim="#181818"
+
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+
+            app:scrimAnimationDuration="700"
+
+            app:statusBarScrim="#18000000"
+
+            app:titleEnabled="false">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                app:layout_collapseMode="parallax"
+
+                app:layout_collapseParallaxMultiplier="0.85">
+
+                <ImageView
+                    android:id="@+id/ivFortHero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:scaleType="centerCrop"
+
+                    android:scaleX="1.14"
+                    android:scaleY="1.14"
+
+                    android:src="@drawable/ic_fort"
+
+                    android:transitionName="fortImage" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+
+                    android:layout_gravity="bottom"
+
+                    android:background="@drawable/bg_hero_gradient" />
+
+                <!-- Fort Name -->
+                <TextView
+                    android:id="@+id/tvFortName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="bottom|start"
+
+                    android:layout_marginStart="22dp"
+                    android:layout_marginBottom="52dp"
+
+                    android:textColor="@android:color/white"
+
+                    android:textSize="34sp"
+
+                    android:textStyle="bold" />
+
+                <!-- District pill -->
+                <TextView
+                    android:id="@+id/tvDistrictName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="bottom|start"
+
+                    android:layout_marginStart="22dp"
+                    android:layout_marginBottom="28dp"
+
+                    android:background="#55000000"
+
+                    android:drawablePadding="4dp"
+
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+
+                    android:text="📍 District"
+
+                    android:textColor="#CCFFFFFF"
+
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvVisitedStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="18dp"
+
+                    android:background="@drawable/bg_visited_badge"
+
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+
+                    android:text="VISITED"
+
+                    android:textColor="@android:color/white"
+
+                    android:textSize="12sp"
+
+                    android:textStyle="bold"
+
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+
+                android:background="#12000000"
+
+                app:layout_collapseMode="pin"
+
+                app:navigationIconTint="@android:color/white" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fillViewport="true"
+
+        android:overScrollMode="always"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+
+            android:padding="22dp">
+
+            <!-- Dynasty / Year / Type info row -->
+            <LinearLayout
+                android:id="@+id/layoutMetaRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="20dp"
+
+                android:orientation="horizontal"
+
+                android:gravity="center_vertical">
+
+                <!-- Dynasty card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+
+                    android:background="#1AFFFFFF"
+
+                    android:orientation="vertical"
+
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="🏛️ DYNASTY"
+
+                        android:textColor="#A0A0A0"
+
+                        android:textSize="10sp"
+
+                        android:textStyle="bold"
+
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/tvDynasty"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="4dp"
+
+                        android:textColor="@android:color/white"
+
+                        android:textSize="13sp"
+
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- Year card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+
+                    android:background="#1AFFFFFF"
+
+                    android:orientation="vertical"
+
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="📅 BUILT"
+
+                        android:textColor="#A0A0A0"
+
+                        android:textSize="10sp"
+
+                        android:textStyle="bold"
+
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/tvYearBuilt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="4dp"
+
+                        android:textColor="@android:color/white"
+
+                        android:textSize="13sp"
+
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- Type card -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:background="#1AFFFFFF"
+
+                    android:orientation="vertical"
+
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="🏰 TYPE"
+
+                        android:textColor="#A0A0A0"
+
+                        android:textSize="10sp"
+
+                        android:textStyle="bold"
+
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/tvFortType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="4dp"
+
+                        android:textColor="@android:color/white"
+
+                        android:textSize="13sp"
+
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Highlights section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="12dp"
+
+                android:text="✦ Must-See Highlights"
+
+                android:textColor="@android:color/white"
+
+                android:textSize="16sp"
+
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupHighlights"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="20dp"
+
+                app:chipSpacingHorizontal="6dp"
+                app:chipSpacingVertical="4dp" />
+
+            <!-- Description -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="10dp"
+
+                android:text="About this Fort"
+
+                android:textColor="@android:color/white"
+
+                android:textSize="16sp"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:lineSpacingExtra="4dp"
+
+                android:textColor="#D0D0D0"
+
+                android:textSize="16sp" />
+
+            <!-- Audio row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="24dp"
+
+                android:gravity="center_vertical"
+
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPlayAudio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="@string/btn_play_audio"
+
+                    app:backgroundTint="#A65E2E"
+
+                    app:cornerRadius="14dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStopAudio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="10dp"
+
+                    android:text="Stop"
+
+                    android:visibility="gone"
+
+                    app:backgroundTint="#A65E2E"
+
+                    app:cornerRadius="14dp" />
+
+            </LinearLayout>
+
+            <!-- AI card -->
+            <LinearLayout
+                android:id="@+id/layoutAiCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="26dp"
+
+                android:background="@drawable/bg_ai_card"
+
+                android:orientation="vertical"
+
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="✨ AI Historical Insights"
+
+                    android:textColor="@android:color/white"
+
+                    android:textSize="18sp"
+
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAiLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="14dp"
+
+                    android:text="AI Generated History"
+
+                    android:textColor="#C58C5B"
+
+                    android:textSize="14sp"
+
+                    android:textStyle="bold"
+
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvAiDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+
+                    android:lineSpacingExtra="5dp"
+                    android:lineSpacingMultiplier="1.08"
+
+                    android:textColor="#3A2A1A"
+
+                    android:textSize="15sp"
+
+                    android:fontFamily="sans-serif"
+
+                    android:letterSpacing="0.01"
+
+                    android:shadowColor="#66000000"
+                    android:shadowDx="0"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+
+                    android:visibility="gone"/>
+
+                <ProgressBar
+                    android:id="@+id/progressAi"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+
+                    android:layout_marginTop="16dp"
+
+                    android:visibility="gone" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGenerateAi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="18dp"
+
+                    android:text="Generate History"
+
+                    app:backgroundTint="#A65E2E"
+
+                    app:cornerRadius="16dp" />
+
+            </LinearLayout>
+
+            <!-- Action buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="28dp"
+
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnMarkVisited"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+
+                    android:text="Mark Visited ✓"
+
+                    app:backgroundTint="#2E7D32"
+
+                    app:cornerRadius="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="Close"
+
+                    app:backgroundTint="#A65E2E"
+
+                    app:cornerRadius="16dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
