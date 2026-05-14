@@ -28,15 +28,7 @@ Download the demo APK here:
 - Local fort dataset loaded from `assets/forts.json`
 - Responsive empty state, shimmer loading, and modern transitions
 
-## Screenshots
 
-Add screenshots from the app here:
-
-- Home / Fort List
-- Fort Detail Bottom Sheet
-- AI Summary View
-- Map View
-- Route in Google Maps
 
 ## Tech Stack
 
