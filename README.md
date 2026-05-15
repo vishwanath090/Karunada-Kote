@@ -27,9 +27,9 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/42ec1e92-a2e8-44f0-99cf-14833ada2805" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/e6e43f64-f189-42a7-b6de-8a56a4994040" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/2bac3a3a-77dc-4ba4-bbfd-53d5e0948d66" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/38e9c735-dd18-472e-bb7f-faa18a349410" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/5f17d7ce-bfa8-4546-bd37-e72522c6340e" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/36fe0959-c027-46e7-b75d-da573907bf97" width="230"/></td>
 </tr>
 </table>
 
@@ -39,9 +39,9 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/39f7be6f-144f-42a9-bffe-a2760e676a5f" width="230"/></td>
+<td><img  src="https://github.com/user-attachments/assets/0178838b-d01e-45f7-899f-47140d8c273b"  width="230"/></td>
 <td><img src="https://github.com/user-attachments/assets/ea639ba4-0f34-47d2-9a79-dc0c8844c0c4" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/705bd437-10ad-467f-930e-e802ab96535c" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/983fdb2d-f0c7-467e-b07c-b7845277109b" width="230"/></td>
 </tr>
 </table>
 
@@ -51,10 +51,10 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/fdbbc3e2-7324-4956-8abd-518f5e8d3eea" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/1ed77863-8017-464b-9e01-40862124bd49" width="230"/></td>
 
-<td><img src="https://github.com/user-attachments/assets/9df9f3bb-6cdb-42d0-9ef0-ce1d94790a63" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/7c93fa49-e078-4f02-a36f-b3bbc3525f7b" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/f9a803e9-c166-4f6c-a23c-370c75327548" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/a737f66a-2858-44ff-a8f8-2e5b1f1da16f" width="230"/></td>
 </tr>
 </table>
 
@@ -64,9 +64,10 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td align="center">
-<img src="https://github.com/user-attachments/assets/151abc2c-2a52-4acb-960e-aa310800eaca" width="230"/>
+<td>
+<img src="https://github.com/user-attachments/assets/b03ee4d8-ed33-41f8-a447-c64c04f66414" width="230"/>
 </td>
+    <td><img src="https://github.com/user-attachments/assets/9b646910-2e30-473c-a176-e5db51682bdf" width="230"/></td>
 </tr>
 </table>
 
