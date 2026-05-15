@@ -299,7 +299,11 @@ Before you begin, ensure you have:
 #### Option 1: Install Pre-built APK (Quickest)
 
 1. **Download the APK**
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 73fce187fdfdf697c5c90c66125fe130ff6a5d0d
    Click here → [📥 Download Karunada Kote APK](https://drive.google.com/file/d/1Ou-UUyG2w1zknaHiHSp_n4J4YB5DDa3O/view?usp=drive_link)
 
 2. **Enable Unknown Sources**
@@ -320,12 +324,18 @@ Before you begin, ensure you have:
    ```
 
 2. **Configure API Key**
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 73fce187fdfdf697c5c90c66125fe130ff6a5d0d
    Create a `local.properties` file in the project root:
    ```properties
    sdk.dir=/path/to/your/Android/sdk
    GEMINI_API_KEY=your_gemini_api_key_here
    ```
+   
+   > ⚠️ **Important:** Never commit `local.properties` to version control!
 
    > ⚠️ **Important:** Never commit `local.properties` to version control!
 
