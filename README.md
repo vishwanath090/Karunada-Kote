@@ -14,9 +14,10 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/39f7be6f-144f-42a9-bffe-a2760e676a5f" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/fdbbc3e2-7324-4956-8abd-518f5e8d3eea" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/9df9f3bb-6cdb-42d0-9ef0-ce1d94790a63" width="230"/></td>
+    <td><img src="https://github.com/user-attachments/assets/cff61900-2d3e-42ec-bdb0-594c01f5b045" width="230"/></td>
+    <td><img src="https://github.com/user-attachments/assets/f970b0e2-284f-4bbe-bbb9-5eeda815e722" width="230"/></td>
+    <td><img src="https://github.com/user-attachments/assets/69f79767-3fcc-4984-b9b9-0a101882681e" width="230"/></td>
+
 </tr>
 </table>
 
@@ -38,7 +39,7 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/f970b0e2-284f-4bbe-bbb9-5eeda815e722" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/39f7be6f-144f-42a9-bffe-a2760e676a5f" width="230"/></td>
 <td><img src="https://github.com/user-attachments/assets/ea639ba4-0f34-47d2-9a79-dc0c8844c0c4" width="230"/></td>
 <td><img src="https://github.com/user-attachments/assets/705bd437-10ad-467f-930e-e802ab96535c" width="230"/></td>
 </tr>
@@ -50,8 +51,9 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 <table>
 <tr>
-<td><img src="https://github.com/user-attachments/assets/69f79767-3fcc-4984-b9b9-0a101882681e" width="230"/></td>
-<td><img src="https://github.com/user-attachments/assets/cff61900-2d3e-42ec-bdb0-594c01f5b045" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/fdbbc3e2-7324-4956-8abd-518f5e8d3eea" width="230"/></td>
+
+<td><img src="https://github.com/user-attachments/assets/9df9f3bb-6cdb-42d0-9ef0-ce1d94790a63" width="230"/></td>
 <td><img src="https://github.com/user-attachments/assets/7c93fa49-e078-4f02-a36f-b3bbc3525f7b" width="230"/></td>
 </tr>
 </table>
