@@ -239,11 +239,6 @@ The Gemini API key is injected at build time via `BuildConfig.GEMINI_API_KEY` fr
 
 ---
 
-## 📄 License
-
-This project is submitted as part of an academic evaluation. All fort images are used for educational purposes.
-
----
 
 ## 👤 Author
 
