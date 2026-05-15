@@ -440,4 +440,5 @@ class FortListActivity : AppCompatActivity() {
             options.toBundle()
         )
     }
+
 }
