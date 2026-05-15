@@ -8,8 +8,67 @@ An immersive Android app that brings Karnataka's 30 historical forts to life —
 
 ## 📸 Screenshots
 
-> *(Add screenshots of Splash Screen, Fort List, Fort Detail Bottom Sheet, and Map View here)*
+<div align="center">
 
+### 🔐 Authentication Flow
+
+<table>
+<tr>
+<td><img src="https://github.com/user-attachments/assets/39f7be6f-144f-42a9-bffe-a2760e676a5f" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/fdbbc3e2-7324-4956-8abd-518f5e8d3eea" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/9df9f3bb-6cdb-42d0-9ef0-ce1d94790a63" width="230"/></td>
+</tr>
+</table>
+
+---
+
+### 🏯 Fort Exploration
+
+<table>
+<tr>
+<td><img src="https://github.com/user-attachments/assets/42ec1e92-a2e8-44f0-99cf-14833ada2805" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/e6e43f64-f189-42a7-b6de-8a56a4994040" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/2bac3a3a-77dc-4ba4-bbfd-53d5e0948d66" width="230"/></td>
+</tr>
+</table>
+
+---
+
+### 🗺️ Interactive Maps
+
+<table>
+<tr>
+<td><img src="https://github.com/user-attachments/assets/f970b0e2-284f-4bbe-bbb9-5eeda815e722" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/ea639ba4-0f34-47d2-9a79-dc0c8844c0c4" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/705bd437-10ad-467f-930e-e802ab96535c" width="230"/></td>
+</tr>
+</table>
+
+---
+
+### ✨ AI History Generation
+
+<table>
+<tr>
+<td><img src="https://github.com/user-attachments/assets/69f79767-3fcc-4984-b9b9-0a101882681e" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/cff61900-2d3e-42ec-bdb0-594c01f5b045" width="230"/></td>
+<td><img src="https://github.com/user-attachments/assets/7c93fa49-e078-4f02-a36f-b3bbc3525f7b" width="230"/></td>
+</tr>
+</table>
+
+---
+
+### 👤 Profile & Settings
+
+<table>
+<tr>
+<td align="center">
+<img src="https://github.com/user-attachments/assets/151abc2c-2a52-4acb-960e-aa310800eaca" width="230"/>
+</td>
+</tr>
+</table>
+
+</div>
 ---
 
 ## 🌟 Features
