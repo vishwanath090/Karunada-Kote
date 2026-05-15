@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#0E0E0E"
+
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:gravity="center_horizontal"
+
+        android:orientation="vertical"
+
+        android:paddingStart="24dp"
+        android:paddingTop="56dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="40dp">
+
+        <!-- Logo / Fort Icon -->
+
+        <ImageView
+            android:id="@+id/ivLogo"
+
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+
+            android:src="@drawable/karanataka_map"
+
+            android:scaleType="fitCenter"
+
+            android:alpha="0.9" />
+
+        <!-- App Name -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="12dp"
+
+            android:text="KARUNADA KOTE"
+
+            android:textColor="#F5E6C8"
+
+            android:textSize="20sp"
+
+            android:letterSpacing="0.14"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp"
+
+            android:text="ಕರ್ನಾಟಕದ ಕೋಟೆಗಳ ಅನ್ವೇಷಣೆ"
+
+            android:textColor="#B8894F"
+
+            android:textSize="12sp" />
+
+        <!-- Auth Card -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAuth"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:cardBackgroundColor="#1C1C1C"
+
+            app:cardCornerRadius="24dp"
+
+            app:cardElevation="8dp"
+
+            app:strokeColor="#33FFFFFF"
+
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical"
+
+                android:padding="24dp">
+
+                <!-- Tab Row -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+
+                    android:layout_marginBottom="24dp"
+
+                    android:background="#2A2A2A"
+
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/btnTabLogin"
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+
+                        android:gravity="center"
+
+                        android:text="Login"
+
+                        android:textColor="#F5E6C8"
+
+                        android:textSize="14sp"
+
+                        android:textStyle="bold"
+
+                        android:alpha="1.0"
+
+                        android:background="#A63B12" />
+
+                    <TextView
+                        android:id="@+id/btnTabSignup"
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+
+                        android:gravity="center"
+
+                        android:text="Sign Up"
+
+                        android:textColor="#F5E6C8"
+
+                        android:textSize="14sp"
+
+                        android:textStyle="bold"
+
+                        android:alpha="0.45" />
+
+                </LinearLayout>
+
+                <!-- Name field (signup only) -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="14dp"
+
+                    android:hint="Full Name"
+
+                    android:visibility="gone"
+
+                    app:boxBackgroundColor="#252525"
+
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+
+                    app:boxStrokeColor="@color/heritage_accent"
+
+                    app:hintTextColor="@color/heritage_accent"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="textPersonName|textCapWords"
+
+                        android:textColor="@android:color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Email -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="14dp"
+
+                    android:hint="Email Address"
+
+                    app:boxBackgroundColor="#252525"
+
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+
+                    app:boxStrokeColor="@color/heritage_accent"
+
+                    app:hintTextColor="@color/heritage_accent"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="textEmailAddress"
+
+                        android:textColor="@android:color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Phone (signup only) -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="14dp"
+
+                    android:hint="Phone (optional)"
+
+                    android:visibility="gone"
+
+                    app:boxBackgroundColor="#252525"
+
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+
+                    app:boxStrokeColor="@color/heritage_accent"
+
+                    app:hintTextColor="@color/heritage_accent"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="phone"
+
+                        android:textColor="@android:color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Password -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginBottom="24dp"
+
+                    android:hint="Password"
+
+                    app:boxBackgroundColor="#252525"
+
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+
+                    app:boxStrokeColor="@color/heritage_accent"
+
+                    app:hintTextColor="@color/heritage_accent"
+
+                    app:passwordToggleEnabled="true"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:inputType="textPassword"
+
+                        android:textColor="@android:color/white" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Submit Button -->
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+
+                    android:text="Login"
+
+                    android:textSize="16sp"
+
+                    android:textStyle="bold"
+
+                    app:backgroundTint="@color/heritage_primary"
+
+                    app:cornerRadius="14dp" />
+
+                <!-- Toggle Prompt -->
+
+                <TextView
+                    android:id="@+id/tvTogglePrompt"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="16dp"
+
+                    android:gravity="center"
+
+                    android:text="New here? Sign up →"
+
+                    android:textColor="#B8894F"
+
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Footer tagline -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="28dp"
+
+            android:gravity="center"
+
+            android:text="Unlocking the Gates to Karnataka's Royal Past"
+
+            android:textColor="#555555"
+
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</ScrollView>

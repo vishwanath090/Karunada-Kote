@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/surface_background"
+    android:background="#0E0E0E"
 
     tools:context=".ui.fortlist.FortListActivity">
 
@@ -16,16 +16,18 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <!-- SHIMMER -->
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmerViewContainer"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:visibility="gone"
+
             app:shimmer_auto_start="true"
             app:shimmer_duration="1500">
 
@@ -33,9 +35,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingTop="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
                 android:padding="8dp">
 
                 <include layout="@layout/shimmer_placeholder_item" />
@@ -47,29 +46,36 @@
 
         </com.facebook.shimmer.ShimmerFrameLayout>
 
-        <!-- RECYCLER -->
+        <!-- RECYCLER — paddingTop must clear the floating header height -->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:clipToPadding="false"
             android:overScrollMode="never"
-            android:paddingTop="8dp"
+
+            android:paddingTop="240dp"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
             android:paddingBottom="60dp"
-            android:fadingEdgeLength="220dp"
-            android:scrollbars="none"
+
+            android:fadingEdgeLength="180dp"
             android:requiresFadingEdge="vertical"
+            android:scrollbars="none"
+
             tools:listitem="@layout/item_fort" />
 
         <!-- EMPTY STATE -->
 
         <LinearLayout
             android:id="@+id/emptyStateContainer"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical"
@@ -107,133 +113,164 @@
 
     </FrameLayout>
 
-    <!-- FLOATING HEADER -->
+    <!-- ════════════════════════════════
+         FLOATING GLASS HEADER
+         ════════════════════════════════ -->
 
-    <FrameLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+
         android:background="@android:color/transparent"
-        android:elevation="16dp"
-        android:fitsSystemWindows="true">
+        android:elevation="0dp"
+        android:translationZ="50dp"
 
-        <!-- HIDDEN TOOLBAR FOR SUPPORT ACTION BAR BINDING -->
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@android:color/transparent"
-            app:title="Karunada Kote"
-            app:titleTextColor="@android:color/white" />
+        app:elevation="0dp"
+        app:liftOnScroll="false">
 
-        <!-- GLASS HEADER PANEL -->
-
-        <LinearLayout
-            android:id="@+id/headerPanel"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="8dp"
-            android:padding="16dp"
-            android:background="@drawable/bg_header_glass">
 
-            <!-- TITLE ROW -->
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="4dp"
+
+            app:cardBackgroundColor="#E6141414"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#44FFFFFF"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="12dp">
 
-                <!-- GOLD ACCENT BAR -->
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="36dp"
-                    android:background="#D4AF37"
-                    android:layout_marginEnd="12dp" />
+                <!-- ── ROW 1: Gold bar | Title + Welcome | Avatar ── -->
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="4dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Karunada Kote"
-                        android:textColor="#FFFFFF"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.02" />
+                    <!-- Gold accent bar -->
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="32dp"
+                        android:background="@color/heritage_accent"
+                        android:layout_marginEnd="10dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Title + Welcome stacked -->
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="ಕರ್ನಾಟಕದ ಐತಿಹಾಸಿಕ ಕೋಟೆಗಳ ಅನ್ವೇಷಣೆ"
-                        android:textColor="#BDD4AF37"
-                        android:textSize="10sp"
-                        android:layout_marginTop="2dp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Karunada Kote"
+                            android:textColor="#F5E6C8"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.02" />
+
+                        <TextView
+                            android:id="@+id/tvWelcome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Welcome, Explorer"
+                            android:textColor="#AAAAAA"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <!-- Profile avatar circle -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/btnProfile"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        app:cardBackgroundColor="@color/heritage_primary"
+                        app:cardCornerRadius="21dp"
+                        app:cardElevation="4dp"
+                        app:strokeColor="@color/heritage_accent"
+                        app:strokeWidth="1.5dp">
+
+                        <TextView
+                            android:id="@+id/tvProfileInitial"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="E"
+                            android:textColor="#F5E6C8"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Hidden toolbar for setSupportActionBar compatibility -->
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/ivKarnatakaMap"
+                <!-- ── ROW 2: Kannada subtitle ── -->
 
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-
-                    android:layout_marginStart="6dp"
-
-                    android:layout_gravity="center_vertical"
-
-                    android:background="@android:color/transparent"
-
-                    android:src="@drawable/karanataka_map"
-
-                    android:scaleType="centerInside"
-
-                    android:adjustViewBounds="true"
-
-                    android:contentDescription="Karnataka Map"
-
-                    android:alpha="0.95"/>
-
-            </LinearLayout>
-
-            <!-- DIVIDER -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#40D4AF37"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="10dp" />
-
-            <!-- SEARCH BAR -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="46dp"
-                android:background="@drawable/bg_search_glass"
-                android:gravity="center_vertical">
-
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/searchView"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
-                    android:background="@android:color/transparent"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                    app:iconifiedByDefault="false"
-                    app:queryBackground="@android:color/transparent"
-                    app:queryHint="ಕರ್ನಾಟಕ ಕೋಟೆಗಳನ್ನು ಹುಡುಕಿ..." />
+                    android:layout_height="wrap_content"
+                    android:paddingStart="27dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="6dp"
+                    android:text="ಕರ್ನಾಟಕದ ಐತಿಹಾಸಿಕ ಕೋಟೆಗಳ ಅನ್ವೇಷಣೆ"
+                    android:textColor="#B8894F"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <!-- ── ROW 3: Search bar ── -->
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginTop="2dp"
+                    app:cardBackgroundColor="#33FFFFFF"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="#55FFFFFF"
+                    app:strokeWidth="1dp">
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/searchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:background="@android:color/transparent"
+                        android:paddingStart="4dp"
+                        android:paddingEnd="4dp"
+                        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                        app:iconifiedByDefault="false"
+                        app:queryBackground="@android:color/transparent"
+                        app:queryHint="ಕರ್ನಾಟಕ ಕೋಟೆಗಳನ್ನು ಹುಡುಕಿ..." />
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

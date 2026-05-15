@@ -33,16 +33,22 @@
             android:theme="@style/Theme.KarunadaKote">
 
             <intent-filter>
-
-                <action
-                    android:name="android.intent.action.MAIN" />
-
-                <category
-                    android:name="android.intent.category.LAUNCHER" />
-
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
         </activity>
+
+        <!-- Login / Signup -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Profile -->
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
 
         <!-- Fort List Screen -->
         <activity
@@ -53,9 +59,10 @@
         <activity
             android:name=".ui.map.MapActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.map.ExploreMapActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
     </application>
 

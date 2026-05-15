@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import com.karunadakote.databinding.ActivitySplashBinding
+import com.karunadakote.ui.auth.LoginActivity
 import com.karunadakote.ui.fortlist.FortListActivity
+import com.karunadakote.data.local.SessionManager
 
 class SplashActivity : AppCompatActivity() {
 
@@ -22,13 +24,10 @@ class SplashActivity : AppCompatActivity() {
         startAnimations()
 
         binding.root.postDelayed({
-
-            startActivity(
-                Intent(
-                    this,
-                    FortListActivity::class.java
-                )
-            )
+            val session = SessionManager(this)
+            val dest = if (session.isLoggedIn()) FortListActivity::class.java
+            else LoginActivity::class.java
+            startActivity(Intent(this, dest))
 
             overridePendingTransition(
                 android.R.anim.fade_in,

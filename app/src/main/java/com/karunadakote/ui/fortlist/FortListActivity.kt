@@ -15,6 +15,8 @@ import com.karunadakote.databinding.ActivityFortListBinding
 import com.karunadakote.ui.map.MapActivity
 import com.karunadakote.viewmodel.FortListViewModel
 import kotlin.math.abs
+import com.karunadakote.ui.profile.ProfileActivity
+import com.karunadakote.data.local.SessionManager
 import com.karunadakote.ui.map.ExploreMapActivity
 class FortListActivity : AppCompatActivity() {
 
@@ -35,18 +37,20 @@ class FortListActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
+        supportActionBar?.title = ""
 
-        supportActionBar?.title =
-            "Karunada Kote"
+        // Welcome text on the inline TextView
+        val session = SessionManager(this)
+        binding.tvWelcome.text = "Welcome, ${session.getUserName()}"
+
         binding.toolbar.setOnClickListener {
+            startActivity(Intent(this, ExploreMapActivity::class.java))
+        }
 
-            startActivity(
-
-                Intent(
-                    this,
-                    ExploreMapActivity::class.java
-                )
-            )
+        // Avatar initial + click
+        binding.tvProfileInitial.text = session.getUserName().first().uppercase()
+        binding.btnProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
 
         setupRecyclerView()
@@ -190,8 +194,8 @@ class FortListActivity : AppCompatActivity() {
 
             clipToPadding = false
 
-            val topPadDp = (180 * resources.displayMetrics.density).toInt()
-            setPadding(paddingLeft, topPadDp, paddingRight, paddingBottom)
+            val topPaddingPx = (240 * resources.displayMetrics.density).toInt()
+            setPadding(0, topPaddingPx, 0, (220 * resources.displayMetrics.density).toInt())
 
             overScrollMode =
                 View.OVER_SCROLL_NEVER
@@ -307,11 +311,6 @@ class FortListActivity : AppCompatActivity() {
         binding.searchView.alpha =
             (1f - (closestRatio * 0.10f))
                 .coerceIn(0.82f, 1f)
-
-        // Fade the whole header panel so cards beneath show through while scrolling
-        binding.headerPanel.alpha =
-            (1f - (closestRatio * 0.45f))
-                .coerceIn(0.30f, 0.82f)
     }
 
     private fun observeViewModel() {
@@ -424,31 +423,6 @@ class FortListActivity : AppCompatActivity() {
             putExtra(
                 MapActivity.EXTRA_FORT_IMAGE,
                 fort.image
-            )
-
-            putExtra(
-                MapActivity.EXTRA_FORT_DYNASTY,
-                fort.dynasty
-            )
-
-            putExtra(
-                MapActivity.EXTRA_FORT_YEAR,
-                fort.yearBuilt
-            )
-
-            putExtra(
-                MapActivity.EXTRA_FORT_TYPE,
-                fort.fortType
-            )
-
-            putExtra(
-                MapActivity.EXTRA_FORT_DISTRICT,
-                fort.districtName
-            )
-
-            putStringArrayListExtra(
-                MapActivity.EXTRA_FORT_HIGHLIGHTS,
-                ArrayList(fort.highlights)
             )
         }
 
