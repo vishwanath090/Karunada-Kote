@@ -456,6 +456,26 @@
 
                     android:visibility="gone"/>
 
+                <!-- CHANGE 3: ✨ Powered by Gemini AI attribution label -->
+                <TextView
+                    android:id="@+id/tvGeminiPowered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="10dp"
+
+                    android:text="✨ Powered by Gemini AI"
+
+                    android:textColor="#C58C5B"
+
+                    android:textSize="11sp"
+
+                    android:textStyle="bold"
+
+                    android:letterSpacing="0.04"
+
+                    android:visibility="gone" />
+
                 <ProgressBar
                     android:id="@+id/progressAi"
                     android:layout_width="32dp"

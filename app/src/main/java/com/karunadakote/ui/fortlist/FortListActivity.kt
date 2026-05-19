@@ -424,6 +424,31 @@ class FortListActivity : AppCompatActivity() {
                 MapActivity.EXTRA_FORT_IMAGE,
                 fort.image
             )
+
+            putExtra(
+                MapActivity.EXTRA_FORT_DYNASTY,
+                fort.dynasty
+            )
+
+            putExtra(
+                MapActivity.EXTRA_FORT_YEAR,
+                fort.yearBuilt
+            )
+
+            putExtra(
+                MapActivity.EXTRA_FORT_TYPE,
+                fort.fortType
+            )
+
+            putExtra(
+                MapActivity.EXTRA_FORT_DISTRICT,
+                fort.districtName
+            )
+
+            putStringArrayListExtra(
+                MapActivity.EXTRA_FORT_HIGHLIGHTS,
+                ArrayList(fort.highlights)
+            )
         }
 
         val options =

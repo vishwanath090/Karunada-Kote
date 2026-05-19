@@ -20,6 +20,7 @@
 
         <!-- SHIMMER -->
 
+        <!-- CHANGE 1: Shimmer has paddingTop to clear the floating glass header -->
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmerViewContainer"
 
@@ -35,7 +36,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:paddingTop="248dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
 
                 <include layout="@layout/shimmer_placeholder_item" />
                 <include layout="@layout/shimmer_placeholder_item" />

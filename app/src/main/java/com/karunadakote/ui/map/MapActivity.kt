@@ -1,8 +1,15 @@
 package com.karunadakote.ui.map
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.karunadakote.audio.AmbientSoundManager
 import com.karunadakote.data.model.Fort
 import com.karunadakote.databinding.ActivityMapBinding
@@ -189,8 +196,9 @@ class MapActivity : AppCompatActivity() {
                 targetLng
             )
 
-        // Smooth cinematic zoom animation
-
+        // ─────────────────────────────────────────────────────────────────
+        // CHANGE 6: Cinematic animated camera — zoom in from overview level
+        // ─────────────────────────────────────────────────────────────────
         map.controller.setZoom(6.0)
 
         map.controller.setCenter(
@@ -205,7 +213,7 @@ class MapActivity : AppCompatActivity() {
             map.controller.animateTo(
                 fortLocation,
                 13.5,
-                1800L
+                1800L                   // 1.8s smooth cinematic zoom-in
             )
 
         }, 350)
@@ -235,6 +243,9 @@ class MapActivity : AppCompatActivity() {
             highlights = targetHighlights
         )
 
+        // ─────────────────────────────────────────────────────────────────
+        // CHANGE 5: Custom branded marker — gold pin with fort icon
+        // ─────────────────────────────────────────────────────────────────
         val marker =
             Marker(map)
 
@@ -243,6 +254,9 @@ class MapActivity : AppCompatActivity() {
 
         marker.title =
             targetName
+
+        marker.icon =
+            createBrandedMarkerIcon()
 
         marker.setAnchor(
             Marker.ANCHOR_CENTER,
@@ -262,23 +276,78 @@ class MapActivity : AppCompatActivity() {
 
         map.overlays.add(marker)
 
-        // Marker Fade-In
-
+        // Marker Fade-In after camera settles
         marker.alpha = 0f
 
         map.postDelayed({
 
             marker.alpha = 1f
 
+            map.invalidate()
+
         }, 700)
 
         // Auto Open Detail AFTER zoom settles
-
         map.postDelayed({
 
             showFortDetail(fort)
 
         }, 2300)
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // CHANGE 5: Branded marker — saffron circle with gold ring + 🏰 emoji label
+    // Drawn programmatically so no extra drawable file is needed
+    // ─────────────────────────────────────────────────────────────────────────
+    private fun createBrandedMarkerIcon(): BitmapDrawable {
+
+        val sizePx = (48 * resources.displayMetrics.density).toInt()
+        val tailH = (14 * resources.displayMetrics.density).toInt()
+        val totalH = sizePx + tailH
+
+        val bitmap = Bitmap.createBitmap(sizePx, totalH, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+
+        // Outer gold ring
+        val ringPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#D4AF37")         // heritage gold
+            style = Paint.Style.FILL
+        }
+        val cx = sizePx / 2f
+        val cy = sizePx / 2f
+        canvas.drawCircle(cx, cy, sizePx / 2f, ringPaint)
+
+        // Inner saffron circle
+        val fillPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#A63B12")         // heritage saffron
+            style = Paint.Style.FILL
+        }
+        canvas.drawCircle(cx, cy, sizePx / 2f - (3 * resources.displayMetrics.density), fillPaint)
+
+        // Teardrop tail
+        val tailPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.parseColor("#D4AF37")
+            style = Paint.Style.FILL
+        }
+        val tailPath = android.graphics.Path().apply {
+            moveTo(cx - 5 * resources.displayMetrics.density, sizePx.toFloat())
+            lineTo(cx + 5 * resources.displayMetrics.density, sizePx.toFloat())
+            lineTo(cx, totalH.toFloat())
+            close()
+        }
+        canvas.drawPath(tailPath, tailPaint)
+
+        // Fort emoji / icon text
+        val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = Color.WHITE
+            textSize = 20 * resources.displayMetrics.density
+            textAlign = Paint.Align.CENTER
+        }
+        // Vertical centre of the circle
+        val textY = cy - (textPaint.ascent() + textPaint.descent()) / 2f
+        canvas.drawText("🏰", cx, textY, textPaint)
+
+        return BitmapDrawable(resources, bitmap)
     }
 
     private fun showFortDetail(

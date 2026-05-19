@@ -1,4 +1,5 @@
 package com.karunadakote.ui.fortlist
+
 import coil.load
 import android.content.Context
 import android.content.Intent
@@ -6,9 +7,9 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar          // ← CHANGE 2: Snackbar import
 import com.karunadakote.R
 import com.karunadakote.data.model.Fort
 import com.karunadakote.databinding.ItemFortBinding
@@ -159,11 +160,13 @@ class FortAdapter(
 
             // ─────────────────────────────────────────────
             // Route Button Click
+            // CHANGE 2: Replaced Toast with Snackbar
             // ─────────────────────────────────────────────
 
             binding.btnRoute.setOnClickListener {
 
                 openGoogleMapsRoute(
+                    rootView = binding.root,
                     context = binding.root.context,
                     latitude = fort.lat,
                     longitude = fort.lng,
@@ -258,9 +261,11 @@ class FortAdapter(
 
     // ─────────────────────────────────────────────────
     // Google Maps Route
+    // CHANGE 2: rootView param added for Snackbar anchor
     // ─────────────────────────────────────────────────
 
     private fun openGoogleMapsRoute(
+        rootView: View,
         context: Context,
         latitude: Double,
         longitude: Double,
@@ -303,10 +308,11 @@ class FortAdapter(
 
             } catch (ex: Exception) {
 
-                Toast.makeText(
-                    context,
-                    "Unable to open Maps",
-                    Toast.LENGTH_SHORT
+                // CHANGE 2: Snackbar replaces Toast — stays visible, looks polished
+                Snackbar.make(
+                    rootView,
+                    "Unable to open Maps for $fortName",
+                    Snackbar.LENGTH_SHORT
                 ).show()
 
                 ex.printStackTrace()

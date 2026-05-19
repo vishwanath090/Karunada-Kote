@@ -3,6 +3,8 @@ package com.karunadakote.ui.detail
 import android.content.res.Resources
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
+import com.google.android.material.snackbar.Snackbar          // ← CHANGE 2: Snackbar
 import com.karunadakote.R
 import com.karunadakote.data.model.ApiResult
 import com.karunadakote.data.model.Fort
@@ -55,6 +58,9 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
 
         private const val ARG_FORT_HIGHLIGHTS =
             "arg_fort_highlights"
+
+        // CHANGE 4: Typing speed — ms per character
+        private const val TYPING_SPEED_MS = 12L
 
         fun newInstance(
             fort: Fort
@@ -136,6 +142,10 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
 
     private var currentSpeakText:
             String? = null
+
+    // CHANGE 4: Typing animation state
+    private val typingHandler = Handler(Looper.getMainLooper())
+    private var typingRunnable: Runnable? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -406,6 +416,35 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
             }
     }
 
+    // ─────────────────────────────────────────────────────────────────────────
+    // CHANGE 4: Typing animation — reveals AI text character by character
+    // ─────────────────────────────────────────────────────────────────────────
+    private fun startTypingAnimation(fullText: String) {
+
+        // Cancel any in-progress animation
+        typingRunnable?.let { typingHandler.removeCallbacks(it) }
+
+        binding.tvAiDescription.text = ""
+
+        var index = 0
+
+        typingRunnable = object : Runnable {
+            override fun run() {
+                if (_binding == null) return          // fragment detached guard
+                if (index <= fullText.length) {
+                    binding.tvAiDescription.text = fullText.substring(0, index)
+                    index++
+                    typingHandler.postDelayed(this, TYPING_SPEED_MS)
+                } else {
+                    // Animation complete — update speak text to final AI response
+                    currentSpeakText = fullText
+                }
+            }
+        }
+
+        typingHandler.post(typingRunnable!!)
+    }
+
     private fun observeAiDescription() {
 
         viewModel.aiDescription.observe(
@@ -425,6 +464,10 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
                     binding.tvAiLabel.visibility =
                         View.GONE
 
+                    // CHANGE 3: Gemini label — hide while loading
+                    binding.tvGeminiPowered.visibility =
+                        View.GONE
+
                     binding.btnGenerateAi.visibility =
                         View.GONE
                 }
@@ -434,7 +477,11 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
                     binding.progressAi.visibility =
                         View.GONE
 
+                    // CHANGE 3: "✨ Powered by Gemini AI" label
                     binding.tvAiLabel.visibility =
+                        View.VISIBLE
+
+                    binding.tvGeminiPowered.visibility =
                         View.VISIBLE
 
                     binding.tvAiDescription.visibility =
@@ -442,17 +489,17 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
 
                     binding.tvAiDescription.alpha = 1f
 
-                    binding.tvAiDescription.text =
-                        result.data
-
-                    currentSpeakText =
-                        result.data
-
                     binding.btnGenerateAi.visibility =
                         View.GONE
+
+                    // CHANGE 4: Start typing animation instead of instant set
+                    startTypingAnimation(result.data)
                 }
 
                 is ApiResult.Error -> {
+
+                    // Cancel any running typing animation
+                    typingRunnable?.let { typingHandler.removeCallbacks(it) }
 
                     binding.progressAi.visibility =
                         View.GONE
@@ -460,26 +507,39 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
                     binding.tvAiLabel.visibility =
                         View.VISIBLE
 
+                    binding.tvGeminiPowered.visibility =
+                        View.GONE
+
                     binding.tvAiDescription.visibility =
                         View.VISIBLE
 
-                    // Fallback: show the fort's built-in description
-                    // so the card always has meaningful content
                     val fallbackText = fort.description.takeIf { it.isNotBlank() }
                         ?: "AI summary unavailable. Please try again."
                     binding.tvAiDescription.text = fallbackText
-                    binding.tvAiDescription.alpha = 0.85f   // subtle visual cue it's the fallback
+                    binding.tvAiDescription.alpha = 0.85f
 
                     binding.btnGenerateAi.visibility =
                         View.VISIBLE
 
                     binding.btnGenerateAi.text =
                         "✦ Try AI Summary Again"
+
+                    // CHANGE 2: Snackbar for error — much more visible than silent fallback
+                    Snackbar.make(
+                        binding.root,
+                        "AI unavailable — showing fort description",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
 
                 null -> {
 
+                    typingRunnable?.let { typingHandler.removeCallbacks(it) }
+
                     binding.tvAiLabel.visibility =
+                        View.GONE
+
+                    binding.tvGeminiPowered.visibility =
                         View.GONE
 
                     binding.tvAiDescription.visibility =
@@ -495,6 +555,10 @@ class FortDetailBottomSheet : BottomSheetDialogFragment() {
     override fun onDestroyView() {
 
         super.onDestroyView()
+
+        // CHANGE 4: Clean up typing handler to prevent memory leaks
+        typingRunnable?.let { typingHandler.removeCallbacks(it) }
+        typingRunnable = null
 
         _binding = null
     }
